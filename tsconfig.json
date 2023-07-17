@@ -14,7 +14,8 @@
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
-    "rootDir": "src"             
+    "rootDir": "src",
   },
-  "exclude": [ "tests" ,"stories"]
+  "include": ["src/**/*"],
+  "exclude": [ "tests" ,"stories","dist","node_modules"]
 }

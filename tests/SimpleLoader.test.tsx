@@ -3,17 +3,15 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 import * as SimpleLoaders from "../src/Simple-Loader";
-import {
-  DefaultProps,
-  DefaultWithoutPrimary,
-  DefaultWithoutSecondary,
-} from "../src/utils/types";
+import { DefaultProps, DefaultWithoutSecondary } from "../src/utils/types";
 
 Object.entries(SimpleLoaders).forEach((loader) => {
   const name = loader[0];
-
+  if (name === "ProgressBarLoader") {
+    return;
+  }
   const Loader = loader[1] as React.ComponentType<
-    DefaultProps & DefaultWithoutPrimary & DefaultWithoutSecondary
+    DefaultProps & DefaultWithoutSecondary
   >;
 
   describe(name, () => {

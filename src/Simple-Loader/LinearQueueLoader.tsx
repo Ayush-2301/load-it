@@ -1,9 +1,9 @@
 import React from "react";
 import { DefaultWithoutSecondary } from "../utils/types";
 import "./style.css";
-import colorConfig from "../utils/colors";
+import colorConfig, { convertHexToRGB } from "../utils/colors";
 import hasUnit from "../utils/hasUnit";
-const RingLoader = ({
+const LinearQueueLoader = ({
   loading = true,
   primary = "#B5B5B5",
   size = "48px",
@@ -25,10 +25,10 @@ const RingLoader = ({
 
   const loaderStyle = {
     "--size": size,
-    "--primary": colorConfig(primary),
+    "--primary-rgb": convertHexToRGB(colorConfig(primary)),
     "--speedMultiplier": speedMultiplier,
     ...cssOverride,
   };
-  return <div className="ring-loader" style={loaderStyle}></div>;
+  return <div className="linear-queue-loader" style={loaderStyle}></div>;
 };
-export default RingLoader;
+export default LinearQueueLoader;

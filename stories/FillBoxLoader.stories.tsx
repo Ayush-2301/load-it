@@ -1,17 +1,17 @@
 import React from "react";
 import type { Meta, StoryFn } from "@storybook/react";
-import { RingLoader } from "../src";
+import { FillBoxLoader } from "../src";
 import { DefaultWithoutSecondary } from "../src/utils/types";
 
 const meta: Meta = {
-  title: "Ring Loader",
-  component: RingLoader,
+  title: "Fill Box Loader",
+  component: FillBoxLoader,
 };
 
 export default meta;
 
 const Template: StoryFn<DefaultWithoutSecondary> = (args) => (
-  <RingLoader {...args} />
+  <FillBoxLoader {...args} />
 );
 
 export const Default = Template.bind({});

@@ -1,17 +1,17 @@
 import React from "react";
 import type { Meta, StoryFn } from "@storybook/react";
-import { RingLoader } from "../src";
+import { LinearQueueLoader } from "../src";
 import { DefaultWithoutSecondary } from "../src/utils/types";
 
 const meta: Meta = {
-  title: "Ring Loader",
-  component: RingLoader,
+  title: "Linear Queue Loader",
+  component: LinearQueueLoader,
 };
 
 export default meta;
 
 const Template: StoryFn<DefaultWithoutSecondary> = (args) => (
-  <RingLoader {...args} />
+  <LinearQueueLoader {...args} />
 );
 
 export const Default = Template.bind({});
@@ -19,7 +19,7 @@ export const Default = Template.bind({});
 export const Custom = Template.bind({});
 Custom.args = {
   loading: true,
-  primary: "#99007F",
+  primary: "rgb(51,255,255)",
   size: "20",
   speedMultiplier: 5,
 };

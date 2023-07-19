@@ -1,15 +1,16 @@
 import React from "react";
-import { DefaultWithoutSecondary } from "../utils/types";
+import { DefaultProps } from "../utils/types";
 import "./style.css";
 import colorConfig from "../utils/colors";
 import hasUnit from "../utils/hasUnit";
-const RingLoader = ({
+const MergeSplitLoader = ({
   loading = true,
   primary = "#B5B5B5",
+  secondary = "#ff3d00",
   size = "48px",
   speedMultiplier = 1,
   cssOverride = {},
-}: DefaultWithoutSecondary) => {
+}: DefaultProps) => {
   if (!loading) {
     return null;
   }
@@ -26,9 +27,10 @@ const RingLoader = ({
   const loaderStyle = {
     "--size": size,
     "--primary": colorConfig(primary),
+    "--secondary": colorConfig(secondary),
     "--speedMultiplier": speedMultiplier,
     ...cssOverride,
   };
-  return <div className="ring-loader" style={loaderStyle}></div>;
+  return <div className="merge-split-loader" style={loaderStyle}></div>;
 };
-export default RingLoader;
+export default MergeSplitLoader;

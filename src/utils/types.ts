@@ -1,3 +1,4 @@
+import { string } from "prop-types";
 import { CSSProperties } from "react";
 
 export  interface DefaultProps {
@@ -8,5 +9,17 @@ export  interface DefaultProps {
   speedMultiplier?: number;
   cssOverride?:CSSProperties;
 }
-export type DefaultWithoutPrimary = Omit<DefaultProps, "primary">;
 export type DefaultWithoutSecondary = Omit<DefaultProps, "secondary">;
+
+export interface LoadingBarProps {
+  promise: Promise<any>;
+  primary?:string;
+  secondary?:string,
+  width?:string,
+  height?:string,
+  successMessage?:string,
+  errorMessage?:string,
+  messageCSS?:CSSProperties,
+  percentage?:boolean,
+  cssOverride?:CSSProperties
+}

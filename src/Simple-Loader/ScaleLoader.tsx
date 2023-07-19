@@ -3,7 +3,7 @@ import { DefaultWithoutSecondary } from "../utils/types";
 import "./style.css";
 import colorConfig from "../utils/colors";
 import hasUnit from "../utils/hasUnit";
-const RingLoader = ({
+const ScaleLoader = ({
   loading = true,
   primary = "#B5B5B5",
   size = "48px",
@@ -29,6 +29,6 @@ const RingLoader = ({
     "--speedMultiplier": speedMultiplier,
     ...cssOverride,
   };
-  return <div className="ring-loader" style={loaderStyle}></div>;
+  return <div className="scale-loader" style={loaderStyle}></div>;
 };
-export default RingLoader;
+export default ScaleLoader;

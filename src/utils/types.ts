@@ -1,4 +1,3 @@
-import { string } from "prop-types";
 import { CSSProperties } from "react";
 
 export  interface DefaultProps {

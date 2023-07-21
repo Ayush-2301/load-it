@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { trackPromiseProgress } from "../utils/progress";
 import { LoadingBarProps } from "../utils/types";
 import colorConfig from "../utils/colors";
@@ -16,10 +16,14 @@ const ProgressBarLoader = ({
   messageCSS = {},
   cssOverride = {},
 }: LoadingBarProps) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>();
   const [progress, setProgress] = useState(0);
-  const [message, setMessage] = useState<string | ReactNode>("");
-  const [loaderMessage, setLoaderMessage] = useState<string | ReactNode>("");
+  const [status, setStatus] = useState<boolean>();
+  const [show, setShow] = useState<boolean>();
+  const [loaderMessage, setLoaderMessage] = useState<string | React.ReactNode>(
+    ""
+  );
+
   useEffect(() => {
     const updateCallback = (currentProgress: number) => {
       setProgress(currentProgress);
@@ -27,34 +31,35 @@ const ProgressBarLoader = ({
 
     const trackProgress = async () => {
       setLoading(true);
+      setShow(true);
       try {
         await trackPromiseProgress(promise, updateCallback);
-        if (successMessage !== "") setMessage(successMessage);
+        setStatus(true);
+        setLoading(false);
         setTimeout(() => {
-          setLoading(false);
+          setShow(false);
         }, 1000);
       } catch (error) {
         console.error("Promise error:", error);
-        if (errorMessage !== "") setMessage(errorMessage);
+        setStatus(false);
+        setLoading(false);
       }
     };
 
     trackProgress();
   }, [promise]);
-  const progressPercentage = `${Math.round(progress)}%`;
+
   useEffect(() => {
-    if (percentage) {
-      setLoaderMessage(
-        (prevState) =>
-          (prevState =
-            progressPercentage.match("100%") || progressPercentage.match("99%")
-              ? message
-              : progressPercentage)
-      );
-    } else {
-      setLoaderMessage(message);
+    const statusMessage = status ? successMessage : errorMessage;
+    if (!loading && percentage) {
+      setLoaderMessage(statusMessage);
+    } else if (!loading && !percentage) {
+      setLoaderMessage(statusMessage);
+    } else if (percentage) {
+      setLoaderMessage((prevState) => (prevState = `${Math.round(progress)}%`));
     }
-  }, [progress]);
+  }, [progress, loading, status, successMessage, errorMessage]);
+
   if (width === "") {
     width = "100%";
   }
@@ -74,10 +79,9 @@ const ProgressBarLoader = ({
     "--secondary": colorConfig(secondary),
     ...cssOverride,
   };
-
   return (
     <>
-      {loading && (
+      {show && (
         <div className="loading-bar-container" style={loaderStyle}>
           <div
             className="loading-bar-progress"

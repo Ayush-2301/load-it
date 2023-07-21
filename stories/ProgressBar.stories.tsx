@@ -3,7 +3,7 @@ import type { Meta, StoryFn } from "@storybook/react";
 import { ProgressBarLoader } from "../src";
 import { LoadingBarProps } from "../src/utils/types";
 
-const apiUrl = "https://jsonplaceholder.typicode.com/post";
+const apiUrl = "https://jsonplaceholder.typicode.com/posts";
 const meta: Meta = {
   title: "Progress loader",
   component: ProgressBarLoader,

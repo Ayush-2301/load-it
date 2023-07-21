@@ -1,5 +1,12 @@
 # @ayush-2002/load-it
 
+## 1.2.0
+
+### Minor Changes
+
+- 1f4abee: Added a new Component : BarLoader
+  Fixed some bugs in the PorgressBarLoader
+
 ## 1.1.0
 
 ### Minor Changes

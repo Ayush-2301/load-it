@@ -1,6 +1,6 @@
 {
   "name": "@ayush-2002/load-it",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A lightweight React library that provides simple loader, skeleton loader, and toast notification components to enhance user experience.",
   "scripts": {
     "start": "rollup -c -w",

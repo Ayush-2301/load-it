@@ -76,7 +76,7 @@ describe("skeleton Loader test", () => {
   });
   it("uses a custom className", () => {
     const { container } = render(
-      <Skeleton className="test-class">
+      <Skeleton loading className="test-class">
         <div>children</div>
       </Skeleton>
     );
@@ -88,7 +88,7 @@ describe("skeleton Loader test", () => {
   });
   it("styles the skeleton", () => {
     const { container } = render(
-      <SkeletonTheme borderRadius="1rem" primary="#67381d">
+      <SkeletonTheme loading borderRadius="1rem" primary="#67381d">
         <Skeleton>children</Skeleton>
       </SkeletonTheme>
     );
@@ -104,7 +104,7 @@ describe("skeleton Loader test", () => {
   });
   it(" should not override styles of the skeleton", () => {
     const { container } = render(
-      <SkeletonTheme borderRadius="1rem" primary="#67381d">
+      <SkeletonTheme loading borderRadius="1rem" primary="#67381d">
         <Skeleton borderRadius={"2rem"}>children</Skeleton>
       </SkeletonTheme>
     );
@@ -120,7 +120,7 @@ describe("skeleton Loader test", () => {
   });
   it(" should check the custom style of both", () => {
     const { container } = render(
-      <SkeletonTheme className="w-40">
+      <SkeletonTheme loading className="w-40">
         <Skeleton className="h-10">children</Skeleton>
       </SkeletonTheme>
     );

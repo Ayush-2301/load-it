@@ -20,7 +20,7 @@ const Template: StoryFn<SkeletonProps> = (...args) => {
   }, []);
   return (
     <div style={{ width: "20px" }}>
-      <Skeleton loading={loading}>
+      <Skeleton>
         <div
           style={{
             border: "1px solid red",

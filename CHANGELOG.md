@@ -1,5 +1,11 @@
 # @ayush-2002/load-it
 
+## 2.0.2
+
+### Patch Changes
+
+- d10e92e: Docs: Added the documentation of Simple Loader
+
 ## 2.0.1
 
 ### Patch Changes

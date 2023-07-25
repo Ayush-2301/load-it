@@ -1,1 +1,4 @@
-export {default as Skeleton} from "./Skeleton"
+import Skeleton from "./Skeleton";
+import SkeletonTheme from "./SkeletonTheme";
+
+export { Skeleton, SkeletonTheme };

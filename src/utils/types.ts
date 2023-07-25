@@ -22,3 +22,14 @@ export interface LoadingBarProps {
   percentage?:boolean,
   cssOverride?:CSSProperties
 }
+export interface SkeletonThemeContextType {
+  loading?: boolean;
+  width?: string;
+  height?: string;
+  primary?: string;
+  borderRadius?: string | number;
+  secondary?: string;
+  duration?: number;
+  direction?: "ltr" | "rtl";
+  enableAnimation?: boolean;
+}

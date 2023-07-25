@@ -1,5 +1,15 @@
 # @ayush-2002/load-it
 
+## 2.0.0
+
+### Major Changes
+
+- 66f3f2f: Introducing the Skeleton Loader, a lightweight loading animation component that allows custom styling and supports Skeleton Theme Context for consistent loading styles across the app.
+
+### Patch Changes
+
+- e4ddc00: fix: fixed some skeleton loading test
+
 ## 1.2.0
 
 ### Minor Changes

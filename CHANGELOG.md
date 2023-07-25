@@ -1,5 +1,11 @@
 # @ayush-2002/load-it
 
+## 2.0.1
+
+### Patch Changes
+
+- f20449c: fix: fixed the custom class name
+
 ## 2.0.0
 
 ### Major Changes

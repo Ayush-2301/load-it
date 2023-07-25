@@ -150,7 +150,7 @@ const Skeleton: React.FC<SkeletonProps> = ({
     typeof className !== "undefined" &&
     typeof contextClassName !== "undefined"
   ) {
-    customClassName += ` ${className} ${contextClassName}`;
+    customClassName += ` ${contextClassName} ${className}`;
   }
   return loading ? (
     <>

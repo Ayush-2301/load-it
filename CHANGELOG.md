@@ -1,5 +1,11 @@
 # @ayush-2002/load-it
 
+## 2.0.3
+
+### Patch Changes
+
+- 58fba0a: docs: Added the Skeleton Loader Documentation
+
 ## 2.0.2
 
 ### Patch Changes

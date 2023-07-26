@@ -18,9 +18,9 @@ To use Load-It in your React project, simply install it via npm:
 npm i @ayush-2002/load-it
 ```
 
-## Usage
+# **Simple Loader**
 
-**Simple Loader**
+## Usage
 
 Each Loader component provides a straightforward loading spinner that you can easily integrate into your React components. When loading is set to true, the spinner will be displayed, indicating ongoing background tasks or data loading processes.
 
@@ -194,6 +194,156 @@ export default MyComponent;
 
 Some loaders use a single primary color for their animations.
 
+# **Skeleton Loader**
+
+## Basic Usage
+
+To use the Skeleton Loader, wrap your components or content that require loading with the `Skeleton` component.
+
+```node
+import React, { useState } from "react";
+import { Skeleton } from "@ayush-2002/load-it";
+
+const MyComponent = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const toggleLoading = () => {
+    setIsLoading((prevIsLoading) => !prevIsLoading);
+  };
+  return (
+    <div>
+      <p>this will always visible</p>
+      <Skeleton loading={isLoading}>
+        <p>When isLoading is false, this will be visible</p>
+      </Skeleton>
+      <button onClick={toggleLoading}>Toggle Loading</button>
+    </div>
+  );
+};
+```
+
+## `Skeleton` Component Props
+
+| Prop              | Type                          | Description                                                                     | Default Value |
+| ----------------- | ----------------------------- | ------------------------------------------------------------------------------- | ------------- |
+| `loading`         | boolean (required)            | Set to `true` to show the skeleton loader.                                      | `true`        |
+| `circle`          | boolean (optional)            | Set to `true` for a circular skeleton loader.                                   | `false`       |
+| `inline`          | boolean (optional)            | Set to `true` for inline rendering of the skeleton loader.                      | `false`       |
+| `className`       | string (optional)             | Custom CSS class name to be applied to the `Skeleton` component.                |               |
+| `children`        | ReactNode (required)          | Content to display when `loading` is `false`.                                   |               |
+| `cssOverride`     | CSSProperties (optional)      | CSS properties to override default styles of the skeleton loader.               | `{}`          |
+| `width`           | string (optional)             | Width of the skeleton loader.                                                   | `100%`        |
+| `height`          | string (optional)             | Height of the skeleton loader.                                                  | `100%`        |
+| `primary`         | string (optional)             | Primary color of the skeleton loader (e.g., #xxxxxx, #xxx, rgb(), or rgba()).   | `#2c2b2b`     |
+| `secondary`       | string (optional)             | Secondary color of the skeleton loader (e.g., #xxxxxx, #xxx, rgb(), or rgba()). | `#575757`     |
+| `borderRadius`    | string/number (optional)      | Border radius of the skeleton loader.                                           | `4px`         |
+| `duration`        | number (optional)             | Duration of the animation for the skeleton loader, in seconds.                  | `2`           |
+| `direction`       | `"ltr"` or `"rtl"` (optional) | Animation direction for the skeleton loader.                                    | `"ltr"`       |
+| `enableAnimation` | boolean (optional)            | Set to `false` to disable animation for the skeleton loader.                    | `true`        |
+
+## `SkeletonTheme` Component Prop
+
+`SkeletonTheme` is a context provider component used in conjunction with the Skeleton Loader. It allows you to set default styles and configurations for all `Skeleton` components within its scope. By wrapping your components with `SkeletonTheme`, you can ensure consistent loading styles and properties across your application.
+
+## `SkeletonTheme` Usage
+
+```node
+import React from "react";
+import { Skeleton, SkeletonTheme } from "@ayush-2002/load-it";
+
+const MyComponent = () => {
+  return (
+    <SkeletonTheme
+      primary="#FF5733"
+      borderRadius="8px"
+      duration={1.5}
+      direction="rtl"
+    >
+      <p>This content will always be visible</p>
+      <Skeleton loading={true}>
+        {" "}
+        // This will use the default styles provided by SkeletonTheme
+        <p>Your content </p>
+      </Skeleton>
+    </SkeletonTheme>
+  );
+};
+```
+
+## `SkeletonTheme` Props
+
+| Prop              | Type                          | Description                                                                     | Default Value |
+| ----------------- | ----------------------------- | ------------------------------------------------------------------------------- | ------------- |
+| `loading`         | boolean (required)            | Set to `true` to show the skeleton loader.                                      | `true`        |
+| `className`       | string (optional)             | Custom CSS class name to be applied to the `Skeleton` component.                |               |
+| `children`        | ReactNode (required)          | Content to display when `loading` is `false`.                                   |               |
+| `width`           | string (optional)             | Width of the skeleton loader.                                                   | `100%`        |
+| `height`          | string (optional)             | Height of the skeleton loader.                                                  | `100%`        |
+| `primary`         | string (optional)             | Primary color of the skeleton loader (e.g., #xxxxxx, #xxx, rgb(), or rgba()).   | `#2c2b2b`     |
+| `secondary`       | string (optional)             | Secondary color of the skeleton loader (e.g., #xxxxxx, #xxx, rgb(), or rgba()). | `#575757`     |
+| `borderRadius`    | string/number (optional)      | Border radius of the skeleton loader.                                           | `4px`         |
+| `duration`        | number (optional)             | Duration of the animation for the skeleton loader, in seconds.                  | `2`           |
+| `direction`       | `"ltr"` or `"rtl"` (optional) | Animation direction for the skeleton loader.                                    | `"ltr"`       |
+| `enableAnimation` | boolean (optional)            | Set to `false` to disable animation for the skeleton loader.                    | `true`        |
+
+## Examples
+
+#### **Circular Skeleton**
+
+```node
+import React, { useState } from "react";
+import { Skeleton } from "@ayush-2002/load-it";
+
+const MyComponent = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const toggleLoading = () => {
+    setIsLoading((prevIsLoading) => !prevIsLoading);
+  };
+
+  return (
+    <div>
+      <p>this will always visible</p>
+      <Skeleton loading={isLoading} circle>
+        {/* Circular skeleton loader will be displayed when loading is true */}
+        <p>When isLoading is false, this will be visible</p>
+      </Skeleton>
+      <button onClick={toggleLoading}>Toggle Loading</button>
+    </div>
+  );
+};
+```
+
+#### **Inline Skeleton**
+
+```node
+import React, { useState } from "react";
+import { Skeleton } from "@ayush-2002/load-it";
+
+const MyComponent = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const toggleLoading = () => {
+    setIsLoading((prevIsLoading) => !prevIsLoading);
+  };
+
+  return (
+    <div>
+      <p>This is some text in your component.</p>
+      <Skeleton loading={isLoading} inline>
+        <p>This content will be displayed when loading is false.</p>
+      </Skeleton>
+      <p>More text in your component.</p>
+      <button onClick={toggleLoading}>Toggle Loading</button>
+    </div>
+  );
+};
+```
+
 ## Acknowledgment
 
 The styles for the Simple Loaders used in this library are inspired by the amazing work of [Vineeth TRV](https://codepen.io/vineethtrv/pen/NWxZqMM) on CodePen.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Ayush-2301/load-it/blob/main/LICENSE) file for details.

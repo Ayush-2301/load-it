@@ -138,8 +138,9 @@ const Skeleton: React.FC<SkeletonProps> = ({
   if (
     typeof loading === "undefined" &&
     typeof contextStyle.loading === "undefined"
-  )
+  ) {
     loading = true;
+  }
 
   let customClassName = "skeleton-loader";
   if (typeof className !== "undefined" && !contextClassName) {
